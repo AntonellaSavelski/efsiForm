@@ -4,9 +4,12 @@
 .form{
     margin-bottom: 10px;
 }
-.verde{
-    color: green;
+#imagen{
+    height: 15rem;
 }
-.rojo{
-    color: red;
+.imagen{
+    text-align: center;
+}
+h1{
+    text-align: center;
 }

@@ -1,58 +1,59 @@
-let valido = false;
-let clase;
+let valido=false;
 
-function validarNumMatematica(){
-    let nota = document.getElementById("matematica").value
+function validarNumero(nota, materia){
     if (nota >=1 && nota <= 10){
+    document.getElementById(materia).style.color = "green"
         valido = true;
-        clase = "verde"
     }
     else{
-        clase = "rojo"
+        document.getElementById(materia).style.color = "red"
+        valido = false;
     }
-    const node = document.createElement("h4");
-    const textnode = document.createTextNode(nota);
-    node.appendChild(textnode);
-    document.getElementById("formulario").appendChild(node);
 }
-function validarNumLengua(){
-    let nota = document.getElementById("lengua").value
-    if (nota >=1 && nota <= 10){
-        valido = true;
-        clase = "verde"
+function validarPromedio(){
+    let nota1= document.getElementById("matematica").value
+    let nota2= document.getElementById("lengua").value
+    let nota3= document.getElementById("efsi").value
+    if (valido===false){
+        alert("Por favor ingrese todas las notas")
     }
     else{
-        clase = "rojo"
+        let promedio = (parseFloat(nota1)+ parseFloat(nota2)+ parseFloat(nota3))/3;
+        document.getElementById("resultado").innerHTML=`El promedio entre las 3 materias es ${promedio}`;
+        if (promedio >=6){
+            document.getElementById("resultado").style.color = "green"
+            valido = true;
+        }
+        else{
+            document.getElementById("resultado").style.color = "red"
+        }
     }
 }
-function validarNumEfsi(){
-    let nota = document.getElementById("efsi").value
-    if (nota >=1 && nota <= 10){
-        valido = true;
-        clase = "verde"
-    }
-    else{
-        clase = "rojo"
-    }
-}
-function validarPromedio(nota1,nota2,nota3){
-    let promedio = (nota1+nota2+nota3)/3;
-    if (promedio >=6){
-        clase= "verde"
-    }
-    else{
-        clase = "rojo"
-    }
-}
-function notaMayor(nota1,nota2,nota3){
+function notaMayor(){
     let mayor;
-    if(nota1> nota2 && nota1 > nota3){
-        mayor = nota1
+    let materiaMayor;
+    let nota1= document.getElementById("matematica").value
+    let nota2= document.getElementById("lengua").value
+    let nota3= document.getElementById("efsi").value
+
+    if (valido===false){
+        alert("Por favor ingrese todas las notas")
     }
-    else if (nota2>nota1 && nota2 >nota3){
-        mayor = nota2
+    else{
+        if(nota1>=nota2 && nota1>=nota3){
+            mayor= nota1
+            materiaMayor = "Matematica"
+        }
+        else if (nota2>=nota1 && nota2>=nota3){
+            mayor= nota2
+            materiaMayor = "Lengua"
+        }
+        else if (nota3>=nota1 && nota3>=nota2){
+            mayor = nota3
+            materiaMayor = "Efsi"
+        }
+        document.getElementById("resultado").style.color = "blue"
+        document.getElementById("resultado").innerHTML=`La nota mayor es ${mayor} y corresponde a la materia ${materiaMayor}`;
     }
-    else if (nota3 >nota1 && nota3>nota2){
-        mayor = nota3
-    }
+    
 }

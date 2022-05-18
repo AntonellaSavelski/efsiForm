@@ -8,17 +8,21 @@
     </head>
     <body class= "inicio">
         <h1>Formulario TP1</h1>
+        <div class = "imagen">
+            <img id = "imagen" src="imagenes/bienvenida.jpg">
+        </div>
         <div id="formulario">
-            <input type="text" onkeyup="validarNumMatematica()" id = "matematica" class="form-control form" placeholder="Ingrese la nota de Matemática" required>
-            <input type="text" onkeyup="validarNumLengua()" id = "lengua" class="form-control form" placeholder="Ingrese la nota de Lengua" required>
-            <input type="text" onkeyup="validarNumEfsi()"id = "efsi" class="form-control form" placeholder="Ingrese la nota de EFSI" required>
+            <input type="text" id = "matematica" class="form-control form" onkeyup="validarNumero(document.getElementById('matematica').value,'matematica')" placeholder="Ingrese la nota de Matemática" required>
+            <input type="text" id = "lengua" class="form-control form" onkeyup="validarNumero(document.getElementById('lengua').value,'lengua')"  placeholder="Ingrese la nota de Lengua" required>
+            <input type="text" id = "efsi" class="form-control form" onkeyup="validarNumero(document.getElementById('efsi').value,'efsi')"placeholder="Ingrese la nota de EFSI" required>
         </div>
-        <div>
-
+       
+        <button type="submit" class="btn btn-primary mb-2" onclick="validarPromedio()">Calcular Promedio</button>
+        <button type="submit" class="btn btn-primary mb-2" onclick="notaMayor()">Materia mayor nota</button>
+        <h6>Aquí se mostrará el resultado:</h6>
+        <div
+            id= "resultado" class="form-control form" readonly>
         </div>
-        <button type="submit" class="btn btn-primary mb-2">Calcular Promedio</button>
-        <button type="submit" class="btn btn-primary mb-2">Materia mayor nota</button>
-
 
         <script src="funciones.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
