@@ -1,11 +1,12 @@
 .inicio{
-    padding: 15px;
+    padding: 5rem;
 }
 .form{
     margin-bottom: 10px;
 }
 #imagen{
     height: 15rem;
+    margin-bottom: 3rem;
 }
 .imagen{
     text-align: center;
